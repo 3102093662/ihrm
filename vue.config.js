@@ -11,12 +11,12 @@ module.exports = defineConfig({
 		https: true,
 		open: false,
 		proxy: {
-			"/api": {
+			[process.env.VUE_APP_BASE_API]: {
 				changeOrigin: true,
 				secure: false,
-				target: "http://www.google.com",
+				target: process.env.VUE_APP_CONSOLE_URL,
 				pathRewrites: {
-					"^/api": "",
+					["^" + process.env.VUE_APP_BASE_API]: "",
 				},
 			},
 		},
